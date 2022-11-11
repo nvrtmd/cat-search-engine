@@ -11,11 +11,24 @@ export default class ResultSection {
 
   setState(data) {
     this.data = data;
-    console.log(data);
+    this.render();
   }
 
   render() {
-    // createElement
+    if (!this.data) {
+      console.log("no~");
+    }
+
+    const { data } = this.data;
+    this.main.innerHTML = data
+      .map(
+        (data) =>
+          `
+        <div>${data.name}</div>
+      `
+      )
+      .join("");
+
     // addEventLister
     // appendChild
   }
