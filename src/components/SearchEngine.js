@@ -7,6 +7,13 @@ export default class SearchEngine {
     this.header.innerHTML = "HEADER";
 
     $app.appendChild(this.header);
+    this.render();
   }
-  render() {}
+  render() {
+    const randomButton = document.createElement("button");
+    randomButton.innerHTML = "RANDOM!";
+
+    randomButton.addEventListener("click", this.onRandomSearch);
+    this.header.appendChild(randomButton);
+  }
 }

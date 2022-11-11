@@ -26,24 +26,30 @@ const api = {
         `${API_END_POINT}/api/cats/search?q=${keyword}`
       );
 
-      return fetchedCatsListData;
-    } catch {}
+      return { isError: false, data: fetchedCatsListData };
+    } catch (err) {
+      return { isError: true, data: err };
+    }
   },
   fetchRandomCatsList: async () => {
     try {
       const fetchedRandomCatsListData = await request(
         `${API_END_POINT}/api/cats/random50`
       );
-      return fetchedRandomCatsListData;
-    } catch {}
+      return { isError: false, data: fetchedRandomCatsListData };
+    } catch (err) {
+      return { isError: true, data: err };
+    }
   },
   fetchCatInfoById: async (id) => {
     try {
       const fetchedCatsListData = await request(
         `${API_END_POINT}/api/cats/${id}`
       );
-      return fetchedCatsListData;
-    } catch {}
+      return { isError: false, data: fetchedCatsListData };
+    } catch (err) {
+      return { isError: true, data: err };
+    }
   },
 };
 

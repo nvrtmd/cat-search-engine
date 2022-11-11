@@ -5,7 +5,16 @@ export default class App {
     const searchEngine = new SearchEngine({
       $app,
       onSearch: () => {},
-      onRandomSearch: () => {},
+      onRandomSearch: async () => {
+        const response = await api.fetchRandomCatsList();
+        console.log(response);
+        if (!response.isError) {
+          return response;
+        } else {
+          console.log(response.data);
+          return;
+        }
+      },
     });
   }
 }
