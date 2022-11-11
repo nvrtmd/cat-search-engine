@@ -15,21 +15,25 @@ export default class ResultSection {
   }
 
   render() {
-    if (!this.data) {
-      console.log("no~");
-    }
-
     const { data } = this.data;
-    this.main.innerHTML = data
-      .map(
-        (data) =>
-          `
-        <div>${data.name}</div>
-      `
-      )
-      .join("");
 
-    // addEventLister
-    // appendChild
+    if (!data) {
+      return;
+    }
+    if (data.length > 0) {
+      this.main.innerHTML = data
+        .map(
+          (data) =>
+            `
+          <div>${data.name}</div>
+        `
+        )
+        .join("");
+    } else {
+      const noDataAlert = document.createElement("h1");
+      noDataAlert.textContent = "없어용 ㅋ";
+
+      this.main.appendChild(noDataAlert);
+    }
   }
 }
