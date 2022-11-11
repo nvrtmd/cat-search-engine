@@ -1,14 +1,15 @@
 import { api } from "./api/api.js";
 import SearchEngine from "./components/SearchEngine.js";
+import ResultSection from "./components/ResultSection.js";
 export default class App {
   constructor($app) {
+    const data = [];
     const searchEngine = new SearchEngine({
       $app,
       onSearch: async (keyword) => {
         const response = await api.fetchCatsListByKeyword(keyword);
-        console.log(response);
         if (!response.isError) {
-          return response.data;
+          resultSection.setState(response.data);
         } else {
           console.log(response.data);
           return;
@@ -17,14 +18,18 @@ export default class App {
 
       onRandomSearch: async () => {
         const response = await api.fetchRandomCatsList();
-        console.log(response.data);
         if (!response.isError) {
-          return response.data;
+          resultSection.setState(response.data);
         } else {
           console.log(response.data);
           return;
         }
       },
+    });
+
+    const resultSection = new ResultSection({
+      $app,
+      data,
     });
   }
 }
