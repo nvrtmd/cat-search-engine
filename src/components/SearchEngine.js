@@ -32,6 +32,11 @@ export default class SearchEngine {
 
     // addEventLister
     randomButton.addEventListener("click", this.onRandomSearch);
+    searchInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        this.onSearch(e.target.value);
+      }
+    });
 
     // appendChild
     this.header.appendChild(displayModeSection);
