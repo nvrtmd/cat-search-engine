@@ -1,12 +1,12 @@
 export default class SearchEngine {
-  constructor($app, onSearch, onRandomSearch) {
+  constructor({ $app, onSearch, onRandomSearch }) {
     this.onSearch = onSearch;
     this.onRandomSearch = onRandomSearch;
+    this.header = document.createElement("header");
+    this.header.className = "header";
+    this.header.innerHTML = "HEADER";
 
-    this.section = document.createElement("section");
-    this.section.classList = "search-engine-section";
-
-    $app.appendChild(this.section);
+    $app.appendChild(this.header);
   }
   render() {}
 }
