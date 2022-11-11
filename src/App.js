@@ -9,7 +9,7 @@ export default class App {
       onSearch: async (keyword) => {
         const response = await api.fetchCatsListByKeyword(keyword);
         if (!response.isError) {
-          resultSection.setState(response.data);
+          resultSection.setCatsList(response.data);
         } else {
           console.log(response.data);
           return;
@@ -19,7 +19,7 @@ export default class App {
       onRandomSearch: async () => {
         const response = await api.fetchRandomCatsList();
         if (!response.isError) {
-          resultSection.setState(response.data);
+          resultSection.setCatsList(response.data);
         } else {
           console.log(response.data);
           return;
@@ -29,7 +29,7 @@ export default class App {
 
     const resultSection = new ResultSection({
       $app,
-      data,
+      catsList: data,
     });
   }
 }

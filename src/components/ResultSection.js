@@ -1,34 +1,32 @@
+import Card from "./Card.js";
 export default class ResultSection {
-  constructor({ $app, data }) {
-    this.data = data;
+  constructor({ $app, catsList }) {
+    this.catsList = catsList;
 
     this.main = document.createElement("main");
     this.main.className = "main";
-    this.main.innerHTML = "main";
 
     $app.appendChild(this.main);
   }
 
-  setState(data) {
-    this.data = data;
+  setCatsList(data) {
+    this.catsList = data;
     this.render();
   }
 
   render() {
-    const { data } = this.data;
-
-    if (!data) {
+    if (!this.catsList.data) {
       return;
     }
-    if (data.length > 0) {
-      this.main.innerHTML = data
-        .map(
-          (data) =>
-            `
-          <div>${data.name}</div>
-        `
-        )
-        .join("");
+
+    if (this.catsList.data.length > 0) {
+      const cardBox = document.createElement("div");
+      cardBox.className = "card-Box";
+      this.catsList.data.map(
+        (cat) => new Card({ $target: cardBox, data: cat })
+      );
+
+      this.main.appendChild(cardBox);
     } else {
       const noDataAlert = document.createElement("h1");
       noDataAlert.textContent = "없어용 ㅋ";
