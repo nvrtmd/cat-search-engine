@@ -5,10 +5,15 @@ export default class SearchEngine {
     this.header = document.createElement("header");
     this.header.className = "header";
     $app.appendChild(this.header);
-    console.log("Search Engine Header Rendered!");
     this.render();
-    console.log("Search Engine Section Rendered!");
+    this.autofocusOnSearchInput();
   }
+
+  autofocusOnSearchInput() {
+    const searchInput = document.querySelector(".search-input");
+    searchInput.focus();
+  }
+
   render() {
     // createElement
     const displayModeSection = document.createElement("section");
