@@ -11,7 +11,6 @@ export default class Card {
   }
 
   render() {
-    console.log(this.data);
     const { url, name } = this.data;
 
     const cardImage = document.createElement("img");

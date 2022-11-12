@@ -11,5 +11,55 @@ header {
 }
 
 main {
-  background: blue;
+  background: rgb(183, 255, 0);
+}
+
+@media (max-width: 576px) {
+  .cat-card {
+    background-color: tomato;
+    width: 70%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .cat-card {
+    background-color: limegreen;
+    width: 40%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .cat-card {
+    background-color: orange;
+    width: 30%;
+  }
+}
+
+@media (min-width: 993px) {
+  .cat-card {
+    background-color: rgb(231, 114, 153);
+    width: 23%;
+  }
+  .cards-box {
+    max-width: 1080px;
+  }
+}
+
+.cards-box {
+  background: navy;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.cat-card {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 70%;
 }

@@ -20,13 +20,13 @@ export default class ResultSection {
     }
 
     if (this.catsList.data.length > 0) {
-      const cardBox = document.createElement("div");
-      cardBox.className = "card-Box";
-      this.catsList.data.map(
-        (cat) => new Card({ $target: cardBox, data: cat })
-      );
+      const cardsBox = document.createElement("section");
+      cardsBox.className = "cards-box";
 
-      this.main.appendChild(cardBox);
+      this.catsList.data.map(
+        (cat) => new Card({ $target: cardsBox, data: cat })
+      );
+      this.main.appendChild(cardsBox);
     } else {
       const noDataAlert = document.createElement("h1");
       noDataAlert.textContent = "없어용 ㅋ";
