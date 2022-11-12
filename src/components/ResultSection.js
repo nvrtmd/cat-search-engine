@@ -33,8 +33,10 @@ export default class ResultSection {
         const catCard = path.find(
           (element) => element.className === "cat-card"
         );
-        const catId = catCard.dataset.catId;
-        console.log(catId);
+        if (catCard) {
+          const catId = catCard.dataset.catId;
+          this.onClick(catId);
+        }
       });
 
       this.main.appendChild(cardsBox);

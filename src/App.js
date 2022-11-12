@@ -30,6 +30,9 @@ export default class App {
     const resultSection = new ResultSection({
       $app,
       catsList: data,
+      onClick: (catId) => {
+        console.log(catId);
+      },
     });
   }
 }
