@@ -3,7 +3,7 @@ export default class SearchEngine {
     this.onSearch = onSearch;
     this.onRandomSearch = onRandomSearch;
     this.header = document.createElement("header");
-    this.header.className = "header";
+    this.header.className = "search-header";
     $app.appendChild(this.header);
     this.render();
     this.autofocusOnSearchInput();

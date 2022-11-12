@@ -3,33 +3,29 @@ export default class Modal {
     this.isVisible = false;
     this.catInfo = null;
 
-    this.modalWrapper = document.createElement("div");
-    this.modalWrapper.className = "modal-wrapper";
-    this.modalWrapper.classList.add("hidden");
+    this.dimmer = document.createElement("div");
+    this.dimmer.className = "dimmer";
+    this.dimmer.classList.add("hidden");
 
-    $app.appendChild(this.modalWrapper);
+    $app.appendChild(this.dimmer);
 
     this.render();
   }
 
   toggleModal() {
     this.isVisible = !this.isVisible;
-    const modalWrapper = document.querySelector(".modal-wrapper");
-    modalWrapper.classList.toggle("hidden");
+    const dimmer = document.querySelector(".dimmer");
+    dimmer.classList.toggle("hidden");
   }
 
   setCatInfo(data) {
     this.toggleModal();
     this.catInfo = data.data;
-    console.log(this.catInfo);
     this.render();
   }
 
   render() {
     if (!this.isVisible) return;
-
-    const dimmer = document.createElement("div");
-    dimmer.className = "dimmer";
 
     const modalContents = document.createElement("section");
     modalContents.className = "modal-contents";
@@ -66,7 +62,6 @@ export default class Modal {
     modalContents.appendChild(modalImage);
     modalContents.appendChild(modalInfo);
 
-    this.modalWrapper.appendChild(dimmer);
-    this.modalWrapper.appendChild(modalContents);
+    this.dimmer.appendChild(modalContents);
   }
 }
