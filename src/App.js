@@ -31,8 +31,14 @@ export default class App {
     const resultSection = new ResultSection({
       $app,
       catsList: data,
-      onClick: (catId) => {
-        console.log(catId);
+      onClick: async (catId) => {
+        const response = await api.fetchCatInfoById(catId);
+        if (!response.isError) {
+          modal.setCatInfo(response.data);
+        } else {
+          console.log(response.data);
+          return;
+        }
       },
     });
 
