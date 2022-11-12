@@ -1,7 +1,8 @@
 import Card from "./Card.js";
 export default class ResultSection {
-  constructor({ $app, catsList }) {
+  constructor({ $app, catsList, onClick }) {
     this.catsList = catsList;
+    this.onClick = onClick;
 
     this.main = document.createElement("main");
     this.main.className = "main";
@@ -26,6 +27,16 @@ export default class ResultSection {
       this.catsList.data.map(
         (cat) => new Card({ $target: cardsBox, data: cat })
       );
+
+      cardsBox.addEventListener("click", (e) => {
+        const path = e.path;
+        const catCard = path.find(
+          (element) => element.className === "cat-card"
+        );
+        const catId = catCard.dataset.catId;
+        console.log(catId);
+      });
+
       this.main.appendChild(cardsBox);
     } else {
       const noDataAlert = document.createElement("h1");
