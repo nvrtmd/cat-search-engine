@@ -40,12 +40,12 @@ main {
     background-color: rgb(231, 114, 153);
     width: 23%;
   }
-  .cards-box {
+  .cards-wrapper {
     max-width: 1080px;
   }
 }
 
-.cards-box {
+.cards-wrapper {
   background: navy;
   display: flex;
   flex-wrap: wrap;

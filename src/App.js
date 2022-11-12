@@ -1,6 +1,7 @@
 import { api } from "./api/api.js";
 import SearchEngine from "./components/SearchEngine.js";
 import ResultSection from "./components/ResultSection.js";
+import Modal from "./components/Modal.js";
 export default class App {
   constructor($app) {
     const data = [];
@@ -33,6 +34,10 @@ export default class App {
       onClick: (catId) => {
         console.log(catId);
       },
+    });
+
+    const modal = new Modal({
+      $app,
     });
   }
 }

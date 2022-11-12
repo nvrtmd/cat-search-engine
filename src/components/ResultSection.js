@@ -21,14 +21,14 @@ export default class ResultSection {
     }
 
     if (this.catsList.data.length > 0) {
-      const cardsBox = document.createElement("section");
-      cardsBox.className = "cards-box";
+      const cardsWrapper = document.createElement("section");
+      cardsWrapper.className = "cards-wrapper";
 
       this.catsList.data.map(
-        (cat) => new Card({ $target: cardsBox, data: cat })
+        (cat) => new Card({ $target: cardsWrapper, data: cat })
       );
 
-      cardsBox.addEventListener("click", (e) => {
+      cardsWrapper.addEventListener("click", (e) => {
         const path = e.path;
         const catCard = path.find(
           (element) => element.className === "cat-card"
@@ -39,7 +39,7 @@ export default class ResultSection {
         }
       });
 
-      this.main.appendChild(cardsBox);
+      this.main.appendChild(cardsWrapper);
     } else {
       const noDataAlert = document.createElement("h1");
       noDataAlert.textContent = "없어용 ㅋ";
