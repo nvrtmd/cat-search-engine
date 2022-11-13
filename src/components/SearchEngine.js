@@ -28,6 +28,7 @@ export default class SearchEngine {
     searchInput.placeholder = "검색어를 입력하세요!";
 
     const randomButton = document.createElement("button");
+    randomButton.className = "random-button";
     randomButton.innerHTML = "RANDOM!";
 
     // addEventLister
