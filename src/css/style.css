@@ -10,8 +10,26 @@
   margin: 0;
 }
 
+@keyframes BackgroundColorPalette {
+  0% {
+    background: #90f1ef;
+  }
+  25% {
+    background: #ffd6e0;
+  }
+  50% {
+    background: #ffef9f;
+  }
+  75% {
+    background: #c1fba4;
+  }
+  100% {
+    background: #cddafd;
+  }
+}
+
 body {
-  background: var(--background);
+  background-color: rgb(228, 223, 255);
 }
 
 .search-header {
@@ -62,9 +80,16 @@ main {
   cursor: pointer;
   border: 2px solid rgb(197, 187, 255);
   border-radius: var(--border-radius);
-  background-color: rgb(238, 235, 255);
+  background-color: var(--background);
   padding: 1.5rem 1rem;
   font-weight: 600;
+  transition: 0.3s ease;
+}
+.cat-card:hover {
+  animation-name: BackgroundColorPalette;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .card-image {
