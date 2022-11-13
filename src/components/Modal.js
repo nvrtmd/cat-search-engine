@@ -12,16 +12,22 @@ export default class Modal {
     this.render();
   }
 
+  setCatInfo(data) {
+    this.toggleModal();
+    this.catInfo = data.data;
+    this.render();
+  }
+
   toggleModal() {
     this.isVisible = !this.isVisible;
     const dimmer = document.querySelector(".dimmer");
     dimmer.classList.toggle("hidden");
   }
 
-  setCatInfo(data) {
+  onClose() {
     this.toggleModal();
-    this.catInfo = data.data;
-    this.render();
+    this.data = null;
+    this.dimmer.innerHTML = "";
   }
 
   render() {
@@ -52,6 +58,8 @@ export default class Modal {
     const catTemperament = document.createElement("p");
     catTemperament.className = "cat-temperament";
     catTemperament.innerText = this.catInfo.temperament;
+
+    closeButton.addEventListener("click", () => this.onClose());
 
     modalHeader.appendChild(modalTitle);
     modalHeader.appendChild(closeButton);
