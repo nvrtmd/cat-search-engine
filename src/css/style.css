@@ -1,6 +1,7 @@
 :root {
   --background: white;
   --text: black;
+  --border-radius: 5%;
 }
 
 * {
@@ -14,37 +15,31 @@ body {
 }
 
 .search-header {
-  background: red;
 }
 
 main {
-  background: rgb(183, 255, 0);
 }
 
 @media (max-width: 576px) {
   .cat-card {
-    background-color: tomato;
     width: 70%;
   }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
   .cat-card {
-    background-color: limegreen;
     width: 40%;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
   .cat-card {
-    background-color: orange;
     width: 30%;
   }
 }
 
 @media (min-width: 993px) {
   .cat-card {
-    background-color: rgb(231, 114, 153);
     width: 23%;
   }
   .cards-wrapper {
@@ -53,22 +48,29 @@ main {
 }
 
 .cards-wrapper {
-  background: navy;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
 }
 
 .cat-card {
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
+  border: 2px solid rgb(197, 187, 255);
+  border-radius: var(--border-radius);
+  background-color: rgb(238, 235, 255);
+  padding: 1.5rem 1rem;
+  font-weight: 600;
 }
 
 .card-image {
-  width: 70%;
+  width: 90%;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
 }
 
 .hidden {
@@ -97,9 +99,9 @@ main {
 .modal-contents {
   display: flex;
   flex-direction: column;
-  border-radius: 5%;
+  border-radius: var(--border-radius);
   z-index: 1;
-  width: 40%;
+  width: 50%;
   max-width: 600px;
   padding: 2.5rem 2rem;
   background-color: lavender;
@@ -107,7 +109,7 @@ main {
 }
 
 .modal-image {
-  border-radius: 5%;
+  border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }
 
@@ -121,4 +123,8 @@ main {
 
 .modal-title {
   margin: 0;
+}
+
+.close-button {
+  cursor: pointer;
 }
