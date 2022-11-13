@@ -3,11 +3,11 @@ export default class Modal {
     this.isVisible = false;
     this.catInfo = null;
 
-    this.dimmer = document.createElement("div");
-    this.dimmer.className = "dimmer";
-    this.dimmer.classList.add("hidden");
+    this.modalWrapper = document.createElement("div");
+    this.modalWrapper.className = "modal-wrapper";
+    this.modalWrapper.classList.add("hidden");
 
-    $app.appendChild(this.dimmer);
+    $app.appendChild(this.modalWrapper);
 
     this.render();
   }
@@ -20,18 +20,21 @@ export default class Modal {
 
   toggleModal() {
     this.isVisible = !this.isVisible;
-    const dimmer = document.querySelector(".dimmer");
-    dimmer.classList.toggle("hidden");
+
+    const modalWrapper = document.querySelector(".modal-wrapper");
+    modalWrapper.classList.toggle("hidden");
   }
 
   onClose() {
     this.toggleModal();
     this.data = null;
-    this.dimmer.innerHTML = "";
+    this.modalWrapper.innerHTML = "";
   }
 
   render() {
     if (!this.isVisible) return;
+    const dimmer = document.createElement("div");
+    dimmer.className = "dimmer";
 
     const modalContents = document.createElement("section");
     modalContents.className = "modal-contents";
@@ -60,6 +63,7 @@ export default class Modal {
     catTemperament.innerText = this.catInfo.temperament;
 
     closeButton.addEventListener("click", () => this.onClose());
+    dimmer.addEventListener("click", () => this.onClose());
 
     modalHeader.appendChild(modalTitle);
     modalHeader.appendChild(closeButton);
@@ -70,6 +74,7 @@ export default class Modal {
     modalContents.appendChild(modalImage);
     modalContents.appendChild(modalInfo);
 
-    this.dimmer.appendChild(modalContents);
+    this.modalWrapper.appendChild(dimmer);
+    this.modalWrapper.appendChild(modalContents);
   }
 }
