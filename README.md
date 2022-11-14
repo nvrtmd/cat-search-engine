@@ -1,5 +1,7 @@
 # 🐱Cat Search Engine🔍
 
+![image](https://user-images.githubusercontent.com/67324487/201721417-8b7a28a2-46f8-4cc6-93d4-35f9b52f3207.png)
+
 ## ❤Outline
 프로그래머스 과제관의 [고양이 사진 검색 사이트](https://school.programmers.co.kr/skill_check_assignments/4)를 처음부터 구현해보는 저장소입니다.
 [woohyeonjo님의 코드](https://github.com/woohyeonjo/ilovecat-javascript)를 참고하였습니다.
