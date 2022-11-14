@@ -120,6 +120,12 @@ body {
 main {
 }
 
+@media (max-width: 800px) {
+  .modal-contents {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 576px) {
   .cat-card {
     width: 70%;
@@ -190,7 +196,6 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
