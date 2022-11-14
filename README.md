@@ -5,6 +5,7 @@
 [woohyeonjo님의 코드](https://github.com/woohyeonjo/ilovecat-javascript)를 참고하였습니다.
 
 ## ❣Requirements
+
 ### 💞HTML, CSS 시멘틱 마크업 적용
 
 #### 💓기본 수정 사항
@@ -40,7 +41,7 @@
 - [x] 검색결과 각 아이템에 고양이 이름을 노출
 
 ### 💟스크롤 페이징 구현
-- [ ] 유저가 스크롤바 끝가지 이동 시 다음페이지 로딩
+- [ ] 유저가 스크롤바 끝까지 이동 시 다음페이지 로딩
 
 ### 💌랜덤고양이 배너 섹션
 - [ ] 현재 검색 결과 목록 위에 배너형태의 랜덤 고양이 섹션을 추가
@@ -56,3 +57,4 @@
 - [x] fetch는 async await를 활용하여 진행하고 에러가 나는 경우 적절히 처리
 - [ ] status code에 따라 에러메세지를 분리하여 작성
 
+[출처](https://velog.io/@z6su3/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B3%A0%EC%96%91%EC%9D%B4-%EC%82%AC%EC%A7%84-%EA%B2%80%EC%83%89-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B6%84%EC%84%9D-%EC%83%81%EC%84%B8)
