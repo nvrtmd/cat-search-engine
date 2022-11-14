@@ -1,13 +1,14 @@
 :root {
-  --background: rgb(228, 223, 255);
+  --dark-mode-background: rgb(43, 28, 79);
+  --light-mode-background: rgb(228, 223, 255);
+  --background: var(--light-mode-background);
   --text: black;
   --border-radius: 5%;
-  --dark-mode-background: rgb(43, 28, 79);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--dark-mode-background)
+    --background: var(--dark-mode-background);
     --text: white;
   }
 }
@@ -49,11 +50,10 @@ body {
 
 .light-mode {
   color: #000000 !important;
-  background: var(--background) !important;
+  background: var(--light-mode-background) !important;
 }
 
 .dark-mode {
-  /* color: #ffffff !important; */
   background: var(--dark-mode-background) !important;
 }
 
