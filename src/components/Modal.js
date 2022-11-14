@@ -64,6 +64,11 @@ export default class Modal {
 
     closeButton.addEventListener("click", () => this.onClose());
     dimmer.addEventListener("click", () => this.onClose());
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "Escape" && this.isVisible) {
+        this.onClose();
+      }
+    });
 
     modalHeader.appendChild(modalTitle);
     modalHeader.appendChild(closeButton);
