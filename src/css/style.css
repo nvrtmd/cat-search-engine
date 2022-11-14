@@ -1,7 +1,15 @@
 :root {
-  --background: white;
+  --background: rgb(228, 223, 255);
   --text: black;
   --border-radius: 5%;
+  --dark-mode-background: rgb(43, 28, 79);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--dark-mode-background)
+    --text: white;
+  }
 }
 
 * {
@@ -34,8 +42,19 @@ input {
 }
 
 body {
-  background-color: rgb(228, 223, 255);
   padding: 1rem 2rem;
+  transition: all 0.3s ease;
+  background-color: var(--background);
+}
+
+.light-mode {
+  color: #000000 !important;
+  background: var(--background) !important;
+}
+
+.dark-mode {
+  /* color: #ffffff !important; */
+  background: var(--dark-mode-background) !important;
 }
 
 .search-section {
@@ -48,6 +67,32 @@ body {
   border-radius: 3rem;
   font-size: 1.2rem;
 }
+
+.display-mode-toggle-back {
+  width: 70px;
+  height: 30px;
+  background: #cccccc;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.display-mode-toggle-button {
+  cursor: pointer;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  position: relative;
+  left: 0;
+  transition: all 0.5s ease;
+}
+
+.display-mode-toggle-button.activated {
+  left: 40px;
+  background: rgb(143, 129, 220) !important;
+}
+
 .search-input {
   font-size: 1.2rem;
   width: 100%;
