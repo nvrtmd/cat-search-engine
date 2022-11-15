@@ -13,22 +13,36 @@ export default class Modal {
   }
 
   setCatInfo(data) {
-    this.toggleModal();
     this.catInfo = data.data;
+    this.toggleModal("open");
+
     this.render();
   }
 
-  toggleModal() {
-    this.isVisible = !this.isVisible;
-
+  toggleModal(action) {
     const modalWrapper = document.querySelector(".modal-wrapper");
-    modalWrapper.classList.toggle("active");
+    this.isVisible = !this.isVisible;
+    switch (action) {
+      case "open":
+        modalWrapper.classList.add("active");
+        break;
+      case "close":
+        modalWrapper.classList.remove("active");
+        modalWrapper.classList.add("deactivate");
+        const fadeOutEffect = setInterval(() => {
+          modalWrapper.classList.remove("deactivate");
+          modalWrapper.innerHTML = "";
+          clearInterval(fadeOutEffect);
+        }, 800);
+        break;
+      default:
+        return;
+    }
   }
 
   onClose() {
-    this.toggleModal();
+    this.toggleModal("close");
     this.data = null;
-    this.modalWrapper.innerHTML = "";
   }
 
   render() {

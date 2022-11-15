@@ -13,12 +13,6 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 @keyframes BackgroundColorPalette {
   0% {
     background: #aaf4f3;
@@ -35,6 +29,29 @@
   100% {
     background: #e7edff;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 input {
@@ -187,8 +204,13 @@ main {
 }
 
 .active {
-  opacity: 1 !important;
-  visibility: visible !important;
+  animation: fadeIn 1s;
+  display: block !important;
+}
+
+.deactivate {
+  animation: fadeOut 1s;
+  display: block !important;
 }
 
 .modal-wrapper {
@@ -197,12 +219,8 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
+  display: none;
+  transition: all 0.4s;
 }
 
 .dimmer {
@@ -213,6 +231,10 @@ main {
 }
 
 .modal-contents {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius);
