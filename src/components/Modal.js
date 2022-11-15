@@ -5,7 +5,7 @@ export default class Modal {
 
     this.modalWrapper = document.createElement("div");
     this.modalWrapper.className = "modal-wrapper";
-    this.modalWrapper.classList.add("hidden");
+    // this.modalWrapper.classList.add("hidden");
 
     $app.appendChild(this.modalWrapper);
 
@@ -22,7 +22,7 @@ export default class Modal {
     this.isVisible = !this.isVisible;
 
     const modalWrapper = document.querySelector(".modal-wrapper");
-    modalWrapper.classList.toggle("hidden");
+    modalWrapper.classList.toggle("active");
   }
 
   onClose() {
