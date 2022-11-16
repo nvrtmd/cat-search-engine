@@ -4,7 +4,7 @@
 
 프로그래머스 과제관의 [고양이 사진 검색 사이트](https://school.programmers.co.kr/skill_check_assignments/4)를 처음부터 구현해보는 저장소입니다.
 
-## 😸Project Link
+## 😸Deployed Link
 [👉🏻Link👈🏻](https://cat-search-engine.netlify.app)
 
 
