@@ -114,6 +114,7 @@ body {
   font-size: 1.2rem;
   width: 100%;
   border: none;
+  margin-right: 2rem;
 }
 .random-button {
   background-color: rgb(180, 173, 218);

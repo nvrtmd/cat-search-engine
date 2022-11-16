@@ -45,14 +45,13 @@ export default class SearchEngine {
     displayModeToggleBack.className = "display-mode-toggle-back";
     const displayModeToggleButton = document.createElement("div");
     displayModeToggleButton.className = "display-mode-toggle-button";
-    // displayModeToggleButton.innerHTML = "🌕";
 
     const searchSection = document.createElement("section");
     searchSection.className = "search-section";
 
     const searchInput = document.createElement("input");
     searchInput.className = "search-input";
-    searchInput.placeholder = "검색어를 입력하세요!";
+    searchInput.placeholder = "Type a keyword and hit the Enter";
 
     const randomButton = document.createElement("button");
     randomButton.className = "random-button";
@@ -66,6 +65,11 @@ export default class SearchEngine {
     searchInput.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         this.onSearch(e.target.value);
+      }
+    });
+    searchInput.addEventListener("click", (e) => {
+      if (e.target.value.length > 0) {
+        e.target.value = "";
       }
     });
 
