@@ -29,11 +29,11 @@ export default class Modal {
       case "close":
         modalWrapper.classList.remove("active");
         modalWrapper.classList.add("deactivate");
-        const fadeOutEffect = setInterval(() => {
+        const fadeOutEffect = setTimeout(() => {
           modalWrapper.classList.remove("deactivate");
           modalWrapper.innerHTML = "";
-          clearInterval(fadeOutEffect);
-        }, 800);
+          clearTimeout(fadeOutEffect);
+        }, 1000);
         break;
       default:
         return;
