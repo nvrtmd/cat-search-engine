@@ -26,7 +26,6 @@ export default class App {
           resultSection.setCatsList(response.data);
         } else {
           console.log(response.data);
-          return;
         }
         loading.toggleLoading();
       },
@@ -42,7 +41,6 @@ export default class App {
           modal.setCatInfo(response.data);
         } else {
           console.log(response.data);
-          return;
         }
         loading.toggleLoading();
       },
