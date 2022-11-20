@@ -7,18 +7,17 @@ import Error from "./components/Error.js";
 export default class App {
   constructor($app) {
     const data = [];
-    let isError = false;
     const searchEngine = new SearchEngine({
       $app,
       onSearch: async (keyword) => {
         loading.toggleLoading();
         const response = await api.fetchCatsListByKeyword(keyword);
-        isError = response.isError;
         if (!response.isError) {
+          error.hideError();
           resultSection.setCatsList(response.data);
         } else {
           loading.toggleLoading();
-          console.log(response.data);
+          error.displayError();
           return;
         }
         loading.toggleLoading();
@@ -27,12 +26,12 @@ export default class App {
       onRandomSearch: async () => {
         loading.toggleLoading();
         const response = await api.fetchRandomCatsList();
-        isError = response.isError;
         if (!response.isError) {
+          error.hideError();
           resultSection.setCatsList(response.data);
         } else {
           loading.toggleLoading();
-          console.log(response.data);
+          error.displayError();
           return;
         }
         loading.toggleLoading();
@@ -60,8 +59,6 @@ export default class App {
     const loading = new Loading({
       $app,
     });
-    const error = new Error({
-      isError,
-    });
+    const error = new Error({});
   }
 }

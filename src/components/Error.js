@@ -1,6 +1,5 @@
 export default class Error {
-  constructor({ isError }) {
-    this.isError = isError;
+  constructor({}) {
     const $app = document.querySelector(".app");
     const header = document.querySelector(".search-header");
 
@@ -14,11 +13,18 @@ export default class Error {
 
     $app.appendChild(this.errorWrapper);
 
+    // this.render();
+  }
+
+  displayError() {
     this.render();
   }
 
+  hideError() {
+    this.errorWrapper.style.setProperty("display", `none`);
+  }
+
   render() {
-    if (!this.isError) return;
     this.errorWrapper.style.setProperty("display", `flex`);
 
     const errorImage = document.createElement("img");
