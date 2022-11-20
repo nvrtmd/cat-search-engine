@@ -20,7 +20,8 @@ export default class ResultSection {
       return;
     }
 
-    if (this.catsList.data.length > 0) {
+    this.main.innerHTML = "";
+    if (this.catsList.data.length < 0) {
       const cardsWrapper = document.createElement("section");
       cardsWrapper.className = "cards-wrapper";
 
@@ -41,10 +42,26 @@ export default class ResultSection {
 
       this.main.appendChild(cardsWrapper);
     } else {
-      const noDataAlert = document.createElement("h1");
-      noDataAlert.textContent = "없어용 ㅋ";
+      const noDataWrapper = document.createElement("div");
+      const header = document.querySelector(".search-header");
 
-      this.main.appendChild(noDataAlert);
+      noDataWrapper.className = "no-data-wrapper";
+      noDataWrapper.style.setProperty(
+        "height",
+        `calc(100vh - ${getComputedStyle(header).height} - 2rem)`
+      );
+
+      const noDataImage = document.createElement("img");
+      noDataImage.className = "no-data-image";
+      noDataImage.src = "src/assets/cat.png";
+
+      const noDataText = document.createElement("div");
+      noDataText.className = "no-data-text";
+      noDataText.innerHTML = "Sorry, There's no cat you search 😿";
+      noDataWrapper.appendChild(noDataImage);
+      noDataWrapper.appendChild(noDataText);
+
+      this.main.appendChild(noDataWrapper);
     }
   }
 }

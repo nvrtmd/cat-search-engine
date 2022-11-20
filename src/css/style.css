@@ -139,7 +139,23 @@ body {
   color: rgb(239, 239, 239);
 }
 
-main {
+.no-data-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.no-data-image {
+  width: 25%;
+  min-width: 100px;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.no-data-text {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 @media (max-width: 800px) {

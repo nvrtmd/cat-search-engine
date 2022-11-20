@@ -36,7 +36,7 @@ export default class Error {
 
     const errorText = document.createElement("div");
     errorText.className = "error-text";
-    errorText.innerHTML = "Sorry, Please retry😢";
+    errorText.innerHTML = "Sorry, Please retry 😿";
 
     this.errorWrapper.appendChild(errorImage);
     this.errorWrapper.appendChild(errorText);
