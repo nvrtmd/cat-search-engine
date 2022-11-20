@@ -3,28 +3,31 @@ export default class Error {
     const $app = document.querySelector(".app");
     const header = document.querySelector(".search-header");
 
+    this.errorData = null;
+
     this.errorWrapper = document.createElement("div");
     this.errorWrapper.className = "error-wrapper";
     this.errorWrapper.style.setProperty(
       "height",
       `calc(100vh - ${getComputedStyle(header).height} - 2rem)`
     );
-    this.errorWrapper.style.setProperty("display", `none`);
 
     $app.appendChild(this.errorWrapper);
-
-    // this.render();
-  }
-
-  displayError() {
     this.render();
   }
 
-  hideError() {
-    this.errorWrapper.style.setProperty("display", `none`);
+  setState(nextData) {
+    this.errorData = nextData;
+    this.render();
   }
 
   render() {
+    if (!this.errorData) {
+      this.errorWrapper.style.setProperty("display", `none`);
+      return;
+    }
+    this.errorWrapper.innerHTML = "";
+
     this.errorWrapper.style.setProperty("display", `flex`);
 
     const errorImage = document.createElement("img");

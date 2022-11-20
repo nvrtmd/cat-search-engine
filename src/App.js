@@ -12,13 +12,11 @@ export default class App {
       onSearch: async (keyword) => {
         loading.toggleLoading();
         const response = await api.fetchCatsListByKeyword(keyword);
+
         if (!response.isError) {
-          error.hideError();
           resultSection.setCatsList(response.data);
         } else {
-          loading.toggleLoading();
-          error.displayError();
-          return;
+          error.setState(response.data);
         }
         loading.toggleLoading();
       },
@@ -26,13 +24,12 @@ export default class App {
       onRandomSearch: async () => {
         loading.toggleLoading();
         const response = await api.fetchRandomCatsList();
+        console.log(response);
+
         if (!response.isError) {
-          error.hideError();
           resultSection.setCatsList(response.data);
         } else {
-          loading.toggleLoading();
-          error.displayError();
-          return;
+          error.setState(response.data);
         }
         loading.toggleLoading();
       },
