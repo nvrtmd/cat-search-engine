@@ -1,9 +1,12 @@
 export default class SearchEngine {
-  constructor({ $app, onSearch, onRandomSearch }) {
+  constructor({ $app, previousKeywords, onSearch, onRandomSearch }) {
+    this.previousKeywords = previousKeywords;
     this.onSearch = onSearch;
     this.onRandomSearch = onRandomSearch;
+
     this.header = document.createElement("header");
     this.header.className = "search-header";
+
     $app.appendChild(this.header);
     this.render();
     this.autofocusOnSearchInput();
@@ -56,6 +59,10 @@ export default class SearchEngine {
     const randomButton = document.createElement("button");
     randomButton.className = "random-button";
     randomButton.innerHTML = "RANDOM!";
+
+    // this.previousKeywords.map((keyword) => {
+    //   console.log(keyword);
+    // });
 
     // addEventLister
     displayModeToggleButton.addEventListener("click", (e) => {

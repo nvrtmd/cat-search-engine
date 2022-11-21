@@ -6,4 +6,10 @@ const setItem = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export { getItem, setItem };
+const saveKeyword = (key, value, fetchedData) => {
+  if (fetchedData.length > 0) {
+    setItem(key, value);
+  }
+};
+
+export { getItem, setItem, saveKeyword };
