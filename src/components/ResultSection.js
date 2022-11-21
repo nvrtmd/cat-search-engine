@@ -21,7 +21,7 @@ export default class ResultSection {
     }
 
     this.main.innerHTML = "";
-    if (this.catsList.data.length < 0) {
+    if (this.catsList.data.length > 0) {
       const cardsWrapper = document.createElement("section");
       cardsWrapper.className = "cards-wrapper";
 
