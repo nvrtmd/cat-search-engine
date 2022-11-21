@@ -1,6 +1,8 @@
+import { getItem, setItem } from "../utils/localStorage.js";
+
 export default class SearchEngine {
-  constructor({ $app, previousKeywords, onSearch, onRandomSearch }) {
-    this.previousKeywords = previousKeywords;
+  constructor({ $app, onSearch, onRandomSearch }) {
+    this.previousKeywords = getItem("keywords");
     this.onSearch = onSearch;
     this.onRandomSearch = onRandomSearch;
 
@@ -21,6 +23,15 @@ export default class SearchEngine {
     const button = e.target;
     button.classList.toggle("activated");
     this.changeDisplayMode(e);
+  }
+
+  saveKeywords(keyword) {
+    if (this.previousKeywords.includes(keyword)) return;
+    if (this.previousKeywords.length === 5) {
+      this.previousKeywords.pop();
+    }
+    this.previousKeywords.unshift(keyword);
+    setItem("keywords", this.previousKeywords);
   }
 
   changeDisplayMode(e) {
@@ -44,6 +55,7 @@ export default class SearchEngine {
 
   render() {
     // createElement
+    console.log(this.previousKeywords);
     const displayModeToggleBack = document.createElement("div");
     displayModeToggleBack.className = "display-mode-toggle-back";
     const displayModeToggleButton = document.createElement("div");
@@ -60,9 +72,10 @@ export default class SearchEngine {
     randomButton.className = "random-button";
     randomButton.innerHTML = "RANDOM!";
 
-    // this.previousKeywords.map((keyword) => {
-    //   console.log(keyword);
-    // });
+    this.previousKeywords &&
+      this.previousKeywords.map((keyword) => {
+        console.log(keyword);
+      });
 
     // addEventLister
     displayModeToggleButton.addEventListener("click", (e) => {
@@ -72,6 +85,7 @@ export default class SearchEngine {
     searchInput.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
         this.onSearch(e.target.value);
+        this.saveKeywords(e.target.value);
       }
     });
     searchInput.addEventListener("click", (e) => {
