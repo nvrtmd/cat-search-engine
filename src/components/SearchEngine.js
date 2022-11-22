@@ -32,6 +32,7 @@ export default class SearchEngine {
     }
     this.previousKeywords.unshift(keyword);
     setItem("keywords", this.previousKeywords);
+    this.render();
   }
 
   changeDisplayMode(e) {
@@ -55,7 +56,7 @@ export default class SearchEngine {
 
   render() {
     // createElement
-    console.log(this.previousKeywords);
+    this.header.innerHTML = "";
     const displayModeToggleBack = document.createElement("div");
     displayModeToggleBack.className = "display-mode-toggle-back";
     const displayModeToggleButton = document.createElement("div");
@@ -72,9 +73,14 @@ export default class SearchEngine {
     randomButton.className = "random-button";
     randomButton.innerHTML = "RANDOM!";
 
+    const previousKeywordsWrapper = document.createElement("section");
+    previousKeywordsWrapper.className = "previous-keywords-wrapper";
     this.previousKeywords &&
       this.previousKeywords.map((keyword) => {
-        console.log(keyword);
+        const previousKeywordBox = document.createElement("div");
+        previousKeywordBox.className = "previous-keyword-box";
+        previousKeywordBox.innerHTML = keyword;
+        previousKeywordsWrapper.appendChild(previousKeywordBox);
       });
 
     // addEventLister
@@ -101,5 +107,6 @@ export default class SearchEngine {
     searchSection.appendChild(searchInput);
     searchSection.appendChild(randomButton);
     this.header.appendChild(searchSection);
+    this.header.appendChild(previousKeywordsWrapper);
   }
 }

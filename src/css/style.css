@@ -87,6 +87,7 @@ body {
   background-color: rgb(205, 199, 235);
   border-radius: 3rem;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .display-mode-toggle-back {
@@ -120,6 +121,7 @@ body {
   border: none;
   margin-right: 2rem;
 }
+
 .random-button {
   background-color: rgb(180, 173, 218);
   color: rgb(62, 60, 73);
@@ -137,6 +139,19 @@ body {
 .random-button:hover {
   background: rgb(154, 148, 186);
   color: rgb(239, 239, 239);
+}
+
+.previous-keywords-wrapper {
+  display: flex;
+}
+
+.previous-keyword-box {
+  background-color: rgb(205, 199, 235);
+  padding: 1rem 2rem;
+  margin: 0 0.5rem;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .no-data-wrapper {
