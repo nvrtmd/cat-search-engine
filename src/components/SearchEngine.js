@@ -99,6 +99,15 @@ export default class SearchEngine {
         e.target.value = "";
       }
     });
+    previousKeywordsWrapper.addEventListener("click", (e) => {
+      const path = e.path;
+      const previousKeywordBox = path.find(
+        (element) => element.className === "previous-keyword-box"
+      );
+      if (previousKeywordBox) {
+        this.onSearch(previousKeywordBox.innerHTML);
+      }
+    });
 
     // appendChild
     displayModeToggleBack.appendChild(displayModeToggleButton);
