@@ -2,7 +2,6 @@ export default class Error {
   constructor({}) {
     const $app = document.querySelector(".app");
     const header = document.querySelector(".search-header");
-
     this.errorData = null;
 
     this.errorWrapper = document.createElement("div");
@@ -26,6 +25,9 @@ export default class Error {
       this.errorWrapper.style.setProperty("display", `none`);
       return;
     }
+    const main = document.querySelector(".main");
+    main.innerHTML = "";
+
     this.errorWrapper.innerHTML = "";
 
     this.errorWrapper.style.setProperty("display", `flex`);
