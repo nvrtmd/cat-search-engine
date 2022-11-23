@@ -4,10 +4,10 @@ import ResultSection from "./components/ResultSection.js";
 import Modal from "./components/Modal.js";
 import Loading from "./components/Loading.js";
 import Error from "./components/Error.js";
-
+import { getItem, setItem } from "./utils/localStorage.js";
 export default class App {
   constructor($app) {
-    const data = [];
+    const data = getItem("prevData");
 
     const searchEngine = new SearchEngine({
       $app,
@@ -17,6 +17,7 @@ export default class App {
 
         if (!response.isError) {
           resultSection.setCatsList(response.data);
+          setItem("prevData", response.data);
         } else {
           error.setState(response.data);
         }
@@ -29,6 +30,7 @@ export default class App {
 
         if (!response.isError) {
           resultSection.setCatsList(response.data);
+          setItem("prevData", response.data);
         } else {
           error.setState(response.data);
         }

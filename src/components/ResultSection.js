@@ -6,8 +6,11 @@ export default class ResultSection {
 
     this.main = document.createElement("main");
     this.main.className = "main";
-
     $app.appendChild(this.main);
+
+    if (this.catsList.data.length > 0) {
+      this.render();
+    }
   }
 
   setCatsList(data) {
