@@ -26,8 +26,6 @@ export default class App {
       onRandomSearch: async () => {
         loading.toggleLoading();
         const response = await api.fetchRandomCatsList();
-        console.log(response);
-
         if (!response.isError) {
           resultSection.setCatsList(response.data);
           setItem("prevData", response.data);

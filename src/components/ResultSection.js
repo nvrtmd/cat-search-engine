@@ -8,7 +8,7 @@ export default class ResultSection {
     this.main.className = "main";
     $app.appendChild(this.main);
 
-    if (this.catsList.data.length > 0) {
+    if (this.catsList.data) {
       this.render();
     }
   }
