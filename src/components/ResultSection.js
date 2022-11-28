@@ -1,10 +1,12 @@
 import Card from "./Card.js";
 import { lazyLoad } from "../utils/lazyLoad.js";
+import { infiniteScroll } from "../utils/infiniteScroll.js";
 
 export default class ResultSection {
-  constructor({ $app, catsList, onClick }) {
+  constructor({ $app, catsList, onClick, onScroll }) {
     this.catsList = catsList;
     this.onClick = onClick;
+    this.onScroll = onScroll;
 
     this.main = document.createElement("main");
     this.main.className = "main";
@@ -13,6 +15,7 @@ export default class ResultSection {
     if (this.catsList.data) {
       this.render();
       lazyLoad();
+      infiniteScroll(this.onScroll);
     }
   }
 
@@ -47,7 +50,12 @@ export default class ResultSection {
         }
       });
 
+      const bottom = document.createElement("div");
+      bottom.className = "card-wrapper-bottom";
+      bottom.innerHTML = "card-wrapper-bottom";
+
       this.main.appendChild(cardsWrapper);
+      this.main.appendChild(bottom);
     } else {
       const noDataWrapper = document.createElement("div");
       const header = document.querySelector(".search-header");

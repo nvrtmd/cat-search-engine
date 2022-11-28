@@ -1,4 +1,4 @@
-export function lazyLoad() {
+const lazyLoad = () => {
   const lazyLoadedImages = [...document.querySelectorAll("img.lazy-loaded")];
 
   const lazyLoadedImagesObserver = new IntersectionObserver(
@@ -17,4 +17,6 @@ export function lazyLoad() {
   lazyLoadedImages.forEach((image) => {
     lazyLoadedImagesObserver.observe(image);
   });
-}
+};
+
+export { lazyLoad };
