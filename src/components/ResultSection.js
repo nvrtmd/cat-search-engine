@@ -1,4 +1,6 @@
 import Card from "./Card.js";
+import { lazyLoad } from "../utils/lazyLoad.js";
+
 export default class ResultSection {
   constructor({ $app, catsList, onClick }) {
     this.catsList = catsList;
@@ -10,12 +12,14 @@ export default class ResultSection {
 
     if (this.catsList.data) {
       this.render();
+      lazyLoad();
     }
   }
 
   setCatsList(data) {
     this.catsList = data;
     this.render();
+    lazyLoad();
   }
 
   render() {
