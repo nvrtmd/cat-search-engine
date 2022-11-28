@@ -23,7 +23,15 @@ export default class Card {
 
     const catName = document.createElement("p");
     catName.className = "cat-name";
+    catName.classList.add("hidden");
     catName.innerText = name;
+
+    this.card.addEventListener("mouseenter", () => {
+      catName.classList.remove("hidden");
+    });
+    this.card.addEventListener("mouseleave", () => {
+      catName.classList.add("hidden");
+    });
 
     cardInfo.appendChild(catName);
     this.card.appendChild(cardImage);

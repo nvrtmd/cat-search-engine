@@ -310,8 +310,12 @@ body {
   cursor: pointer;
 }
 
-.hidden {
+.display-none {
   display: none !important;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .loader-wrapper {
