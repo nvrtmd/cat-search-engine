@@ -53,7 +53,6 @@ export default class ResultSection {
 
       const bottom = document.createElement("div");
       bottom.className = "card-wrapper-bottom";
-      bottom.innerHTML = "card-wrapper-bottom";
 
       this.main.appendChild(cardsWrapper);
       this.main.appendChild(bottom);
