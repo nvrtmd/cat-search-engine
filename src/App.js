@@ -17,6 +17,7 @@ export default class App {
         const response = await api.fetchCatsListByKeyword(keyword);
 
         if (!response.isError) {
+          error.setState("");
           resultSection.setCatsList(response.data);
           setItem("prevData", response.data);
         } else {
@@ -28,6 +29,7 @@ export default class App {
         loading.toggleLoading();
         const response = await api.fetchRandomCatsList();
         if (!response.isError) {
+          error.setState("");
           resultSection.setCatsList(response.data);
           setItem("prevData", response.data);
         } else {
