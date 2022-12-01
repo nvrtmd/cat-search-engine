@@ -23,6 +23,7 @@ export default class ResultSection {
     this.catsList = data;
     this.render();
     lazyLoad();
+    infiniteScroll(this.onScroll);
   }
 
   render() {

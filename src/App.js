@@ -5,7 +5,6 @@ import Modal from "./components/Modal.js";
 import Loading from "./components/Loading.js";
 import Error from "./components/Error.js";
 import { getItem, setItem } from "./utils/localStorage.js";
-import { infiniteScroll } from "./utils/infiniteScroll.js";
 
 export default class App {
   constructor($app) {
