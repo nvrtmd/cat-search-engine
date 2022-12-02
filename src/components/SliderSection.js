@@ -25,6 +25,30 @@ export default class SliderSection {
     this.render();
   }
 
+  setPage(direction) {
+    this.sliderSection.innerHTML = "";
+    console.log(this.catsList.data.length);
+    switch (direction) {
+      case "left":
+        if (this.page == 0) {
+          this.page = this.catsList.data.length - 5;
+          break;
+        }
+        this.page -= 5;
+        break;
+      case "right":
+        if (this.page == this.catsList.data.length - 5) {
+          this.page = 0;
+          break;
+        }
+        this.page += 5;
+        break;
+      default:
+        return;
+    }
+    this.render();
+  }
+
   render() {
     if (!this.catsList.data) {
       return;
@@ -33,11 +57,29 @@ export default class SliderSection {
     const sliderWrapper = document.createElement("div");
     sliderWrapper.className = "slider-wrapper";
 
+    const leftButton = document.createElement("div");
+    leftButton.className = "left-button";
+    leftButton.innerHTML = "👈🏻";
+    sliderWrapper.appendChild(leftButton);
+
     this.catsList.data.slice(this.page, this.page + 5).map((cat) => {
       const catImage = document.createElement("img");
       catImage.className = "cat-image";
       catImage.src = cat.url;
       sliderWrapper.appendChild(catImage);
+    });
+
+    const rightButton = document.createElement("div");
+    rightButton.className = "right-button";
+    rightButton.innerHTML = "👉🏻";
+    sliderWrapper.appendChild(rightButton);
+
+    leftButton.addEventListener("click", () => {
+      this.setPage("left");
+    });
+
+    rightButton.addEventListener("click", () => {
+      this.setPage("right");
     });
 
     this.sliderSection.appendChild(sliderWrapper);
