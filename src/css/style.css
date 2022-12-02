@@ -78,6 +78,11 @@ body {
   background: var(--dark-mode-background) !important;
 }
 
+.search-header {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
 .search-section {
   display: flex;
   justify-content: space-between;
