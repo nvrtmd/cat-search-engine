@@ -25,7 +25,6 @@ export default class SliderSection {
 
   setPage(direction) {
     this.sliderSection.innerHTML = "";
-    console.log(this.pages);
     switch (direction) {
       case "left":
         if (this.pages[0] - 5 < 0) {
