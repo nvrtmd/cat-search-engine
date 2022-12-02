@@ -192,6 +192,7 @@ body {
 
 .cat-image {
   width: 15%;
+  border-radius: var(--border-radius);
 }
 
 .no-data-wrapper {

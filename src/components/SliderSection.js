@@ -1,9 +1,8 @@
 import { api } from "../api/api.js";
-import Card from "./Card.js";
 
 export default class SliderSection {
   constructor({ $app }) {
-    this.page = 0;
+    this.pages = [0, 5];
     this.sliderSection = document.createElement("section");
     this.sliderSection.className = "slider-section";
     $app.appendChild(this.sliderSection);
@@ -27,21 +26,31 @@ export default class SliderSection {
 
   setPage(direction) {
     this.sliderSection.innerHTML = "";
-    console.log(this.catsList.data.length);
+    console.log(this.pages);
     switch (direction) {
       case "left":
-        if (this.page == 0) {
-          this.page = this.catsList.data.length - 5;
+        if (this.pages[0] - 5 < 0) {
+          this.pages = [
+            this.catsList.data.length - 5,
+            this.catsList.data.length,
+          ];
           break;
         }
-        this.page -= 5;
+        this.pages = this.pages.map((page) => page - 5);
         break;
       case "right":
-        if (this.page == this.catsList.data.length - 5) {
-          this.page = 0;
+        if (this.pages[1] === this.catsList.data.length) {
+          this.pages = [0, 5];
           break;
         }
-        this.page += 5;
+        if (this.pages[1] + 5 > this.catsList.data.length) {
+          this.pages = [
+            this.catsList.data.length - 5,
+            this.catsList.data.length,
+          ];
+          break;
+        }
+        this.pages = this.pages.map((page) => page + 5);
         break;
       default:
         return;
@@ -62,7 +71,7 @@ export default class SliderSection {
     leftButton.innerHTML = "👈🏻";
     sliderWrapper.appendChild(leftButton);
 
-    this.catsList.data.slice(this.page, this.page + 5).map((cat) => {
+    this.catsList.data.slice(this.pages[0], this.pages[1]).map((cat) => {
       const catImage = document.createElement("img");
       catImage.className = "cat-image";
       catImage.src = cat.url;
