@@ -20,7 +20,9 @@ export default class App {
         if (!response.isError) {
           error.setState("");
           resultSection.setCatsList(response.data);
-          setItem("prevData", response.data);
+          if (response.data.data.length > 0) {
+            setItem("prevData", response.data);
+          }
         } else {
           error.setState(response.data);
         }

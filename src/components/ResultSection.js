@@ -23,7 +23,9 @@ export default class ResultSection {
     this.catsList = data;
     this.render();
     lazyLoad();
-    infiniteScroll(this.onScroll);
+    if (this.catsList.data.length > 0) {
+      infiniteScroll(this.onScroll);
+    }
   }
 
   render() {
