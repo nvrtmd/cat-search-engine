@@ -25,6 +25,7 @@ export default class App {
           }
         } else {
           error.setState(response.data);
+          console.log(response.data);
         }
         loading.toggleLoading();
       },
@@ -37,6 +38,7 @@ export default class App {
           setItem("prevData", response.data);
         } else {
           error.setState(response.data);
+          console.log(response.data);
         }
         loading.toggleLoading();
       },
@@ -68,6 +70,7 @@ export default class App {
           setItem("prevData", concatenatedData);
         } else {
           error.setState(response.data);
+          console.log(response.data);
         }
         loading.toggleLoading();
       },

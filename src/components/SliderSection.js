@@ -20,7 +20,6 @@ export default class SliderSection {
 
   setCatsList(data) {
     this.catsList = data;
-    console.log(this.catsList);
     this.render();
   }
 

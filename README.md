@@ -59,7 +59,7 @@
 
 ### 🐈API
 - [x] fetch는 async await를 활용하여 진행하고 에러가 나는 경우 적절히 처리
-- [ ] status code에 따라 에러메세지를 분리하여 작성
+- [x] status code에 따라 에러메세지를 분리하여 작성
 
 [출처](https://velog.io/@z6su3/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B3%A0%EC%96%91%EC%9D%B4-%EC%82%AC%EC%A7%84-%EA%B2%80%EC%83%89-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B6%84%EC%84%9D-%EC%83%81%EC%84%B8)
 

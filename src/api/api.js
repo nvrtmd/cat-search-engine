@@ -2,20 +2,22 @@ const API_END_POINT =
   "https://q9d70f82kd.execute-api.ap-northeast-2.amazonaws.com/dev";
 
 const request = async (url) => {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const fetchedData = await response.json();
-      return fetchedData;
-    } else {
-      const errorData = await response.json();
-      throw errorData;
-    }
-  } catch (err) {
-    throw {
-      message: err.message,
-      status: err.status,
-    };
+  const response = await fetch(url);
+  switch (response.status / 100) {
+    case 3:
+      throw {
+        message: `Redirects Error with status code ${response.status}`,
+      };
+    case 4:
+      throw {
+        message: `Client Error with status code ${response.status}`,
+      };
+    case 5:
+      throw {
+        message: `Server Error with status code ${response.status}`,
+      };
+    default:
+      return response.json();
   }
 };
 
@@ -25,10 +27,9 @@ const api = {
       const fetchedCatsListData = await request(
         `${API_END_POINT}/api/cats/search?q=${keyword}`
       );
-
       return { isError: false, data: fetchedCatsListData };
     } catch (err) {
-      return { isError: true, data: err };
+      return { isError: true, data: err.message };
     }
   },
   fetchRandomCatsList: async () => {
@@ -38,7 +39,7 @@ const api = {
       );
       return { isError: false, data: fetchedRandomCatsListData };
     } catch (err) {
-      return { isError: true, data: err };
+      return { isError: true, data: err.message };
     }
   },
   fetchCatInfoById: async (id) => {
@@ -48,7 +49,7 @@ const api = {
       );
       return { isError: false, data: fetchedCatsListData };
     } catch (err) {
-      return { isError: true, data: err };
+      return { isError: true, data: err.message };
     }
   },
 };
