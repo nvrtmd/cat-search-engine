@@ -1,6 +1,7 @@
 # 😺Cat Search Engine🔍
 
-![123](https://user-images.githubusercontent.com/67324487/203611766-ec9ecbcb-ea0c-4993-b80d-c0cbad9a9ff7.gif)
+![123](https://user-images.githubusercontent.com/67324487/205359886-7550c920-90c6-4b6a-ba8a-9d3c1f0fdde0.gif)
+
 
 프로그래머스 과제관의 [고양이 사진 검색 사이트](https://school.programmers.co.kr/skill_check_assignments/4)를 처음부터 구현해보는 저장소입니다.
 
