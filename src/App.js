@@ -1,6 +1,7 @@
 import { api } from "./api/api.js";
 import SearchEngine from "./components/SearchEngine.js";
 import ResultSection from "./components/ResultSection.js";
+import SliderSection from "./components/SliderSection.js";
 import Modal from "./components/Modal.js";
 import Loading from "./components/Loading.js";
 import Error from "./components/Error.js";
@@ -38,6 +39,8 @@ export default class App {
         loading.toggleLoading();
       },
     });
+
+    const sliderSection = new SliderSection({ $app });
 
     const resultSection = new ResultSection({
       $app,
